@@ -30,8 +30,7 @@ jobs:
           
       - name: starting apache2
         uses: ./.github/workflows/reuseable.yml
-        
-            
+              
       - name: SSH into GCP VM and restart server
         uses: appleboy/ssh-action@master
         with:
