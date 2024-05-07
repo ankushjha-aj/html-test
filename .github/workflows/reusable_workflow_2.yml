@@ -1,0 +1,14 @@
+name: Reusable workflow 2
+on:
+  workflow_call: 
+  
+jobs: 
+  run-job-1: 
+  
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkout@v3
+       - name: write something to log
+         run: |
+           echo "I'm Reusable-Workflow-2 from HTML-test_repo"
+  
