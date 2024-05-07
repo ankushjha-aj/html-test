@@ -27,7 +27,7 @@ jobs:
           key: ${{ secrets.GCP_VM_PRIVATE_KEY }}
           source: "."  
           target: "/var/www/html/html-test"  # Target directory on GCP VM
-          
+
       - name: starting apache2
         uses: ./.github/workflows/reuseable.yml
               
