@@ -29,13 +29,8 @@ jobs:
           target: "/var/www/html/html-test"  # Target directory on GCP VM
           
       - name: starting apache2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.GCP_VM_HOST }}
-          username: ${{ secrets.GCP_VM_USERNAME }}
-          key: ${{ secrets.GCP_VM_PRIVATE_KEY }}
-          script: |
-            sudo systemctl start apache2 
+        uses: ./.github/workflows/reuseable.yml
+        
             
       - name: SSH into GCP VM and restart server
         uses: appleboy/ssh-action@master
