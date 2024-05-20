@@ -22,27 +22,30 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ${{ inputs.image_name }}:dev-${{ needs.get_branch_name.outputs.branch_name }}-gha${{ github.run_number }}
+          ecr: auto
+          logout: true
+          
+  #     - name: Build and push
+  #       uses: docker/build-push-action@v3
+  #       with:
+  #         push: true
+  #         tags: ${{ inputs.image_name }}:dev-${{ needs.get_branch_name.outputs.branch_name }}-gha${{ github.run_number }}
 
-  deploy_to_gke:
-    needs: docker_build
-    runs-on: ubuntu-latest
-    steps:
-      - id: auth
-        uses: google-github-actions/auth@v1
-        with:
-          credentials_json: ${{ inputs.gke_sa_key }}
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1 
-      - uses: google-github-actions/get-gke-credentials@v1
-        with:
-          cluster_name: ${{ inputs.cluster_name }}
-          location: ${{ inputs.location }}
-      - name: Deploy
-        run: |-
-          kubectl set image deployment/root-manager infrastructure-root-image=${{ inputs.image_name }}:dev-${{ needs.get_branch_name.outputs.branch_name }}-gha${{ github.run_number }} -n registrar-api-buzz
-          kubectl rollout status deployment/root-manager -n registrar-api-buzz
+  # deploy_to_gke:
+  #   needs: docker_build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - id: auth
+  #       uses: google-github-actions/auth@v1
+  #       with:
+  #         credentials_json: ${{ inputs.gke_sa_key }}
+  #     - name: Set up Cloud SDK
+  #       uses: google-github-actions/setup-gcloud@v1 
+  #     - uses: google-github-actions/get-gke-credentials@v1
+  #       with:
+  #         cluster_name: ${{ inputs.cluster_name }}
+  #         location: ${{ inputs.location }}
+  #     - name: Deploy
+  #       run: |-
+  #         kubectl set image deployment/root-manager infrastructure-root-image=${{ inputs.image_name }}:dev-${{ needs.get_branch_name.outputs.branch_name }}-gha${{ github.run_number }} -n registrar-api-buzz
+  #         kubectl rollout status deployment/root-manager -n registrar-api-buzz
