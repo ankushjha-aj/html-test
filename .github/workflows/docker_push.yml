@@ -10,9 +10,9 @@ jobs:
       contents: read
       packages: write
     
-    strategy:
-      matrix:
-        image_name: ["html-test"] 
+    # strategy:
+    #   matrix:
+    #     image_name: ["komal","Ankush"] 
 
     steps:
       - name: Checkout code
@@ -26,10 +26,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.image_name }}:latest .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/komal:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.image_name }}:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/komal:latest
 
 
 # name: Build and Push Docker Image
