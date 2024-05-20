@@ -10,6 +10,6 @@ jobs:
     uses: ./.github/workflows/build-and-push-docker.yml
     with:
       branches: '["main"]'
-      image_names: '["html-test"]'
+      image_names: '["html-test"]' 
       dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
       dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
