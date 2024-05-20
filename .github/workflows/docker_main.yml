@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches:
@@ -9,8 +8,8 @@ jobs:
   call-build-and-push:
     uses: ./.github/workflows/docker_push.yml
     with:
-      branches: '["main"]'
-      image_names: '["html-test"]'
+      branches: main
+      image_names: html-test
       dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
       dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
