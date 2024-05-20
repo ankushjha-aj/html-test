@@ -1,6 +1,25 @@
 name: Reusable_wokflow_2
 on:
   workflow_call:
+    inputs:
+      dockerhub_username:
+        required: true
+        type: string
+      dockerhub_token:
+        required: true
+        type: string
+      image_name:
+        required: true
+        type: string
+      gke_sa_key:
+        required: true
+        type: string
+      cluster_name:
+        required: true
+        type: string
+      location:
+        required: true
+        type: string
 
 jobs:
   get_branch_name:
