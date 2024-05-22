@@ -3,15 +3,6 @@ name: Deploy to GCP VM (Reusable)
 on:
   workflow_call:
     inputs:
-      gcp_vm_host:
-        required: true
-        type: string
-      gcp_vm_username:
-        required: true
-        type: string
-      gcp_vm_private_key:
-        required: true
-        type: string
       target_directory:
         required: true
         type: string
