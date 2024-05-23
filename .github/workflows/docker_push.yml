@@ -14,7 +14,7 @@ jobs:
     
     strategy:
       matrix:
-        image_name: ["html-test", "my-other-image", "komal", "ankush"] # Define multiple image names if needed
+        image_name: ["upgrade-docker"] # Define multiple image names if needed
 
     steps:
       - name: Checkout code
