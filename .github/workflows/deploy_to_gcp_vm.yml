@@ -3,7 +3,7 @@ name: Deploy to GCP VM (Reusable)
 on:
   workflow_call:
     inputs:
-      target_directory:
+      target:
         required: true
         type: string
     secrets:
@@ -15,7 +15,7 @@ on:
         required: true 
 
 env: 
-  target_directory: ${{ inputs.target_directory}}
+  target: ${{ inputs.target}}
   gcp_vm_host: ${{ inputs.gcp_vm_host }}
   gcp_vm_username: ${{ inputs.gcp_vm_username}} 
   gcp_vm_private_key: ${{ inputs.gcp_vm_private_key }} 
@@ -34,7 +34,7 @@ jobs:
           gcp_vm_username: ${{ secrets.GCP_VM_USERNAME }}
           gcp_vm_private_key: ${{ secrets.GCP_VM_PRIVATE_KEY }}
           source: "."
-          target_directory: ${{ inputs.target_directory }}
+          target: ${{ inputs.target }}
 
       - name: Restart Apache2
         uses: appleboy/ssh-action@master
