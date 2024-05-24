@@ -14,6 +14,12 @@ on:
       gcp_vm_private_key:
         required: true 
 
+env: 
+  target_directory: ${{ inputs.target_directory}}
+  gcp_vm_host: ${{ inputs.gcp_vm_host }}
+  gcp_vm_username: ${{ inputs.gcp_vm_username}} 
+  gcp_vm_private_key: ${{ inputs.gcp_vm_private_key }} 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
