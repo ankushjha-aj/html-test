@@ -16,9 +16,9 @@ on:
 
 env: 
   target: ${{ inputs.target}}
-  host: ${{ inputs.gcp_vm_host }}
-  username: ${{ inputs.gcp_vm_username}} 
-  key: ${{ inputs.gcp_vm_private_key }} 
+  host: ${{ inputs.host }}
+  username: ${{ inputs.username}} 
+  key: ${{ inputs.key }} 
 
 jobs:
   deploy:
