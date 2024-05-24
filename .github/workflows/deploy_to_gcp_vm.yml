@@ -9,7 +9,7 @@ on:
     secrets:
       host:
         required: true
-      gcp_vm_username:
+      username:
         required: true
       key:
         required: true 
