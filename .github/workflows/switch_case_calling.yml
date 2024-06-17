@@ -6,27 +6,8 @@ on:
       - main
 
 jobs:
-  deploy-certs-job:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v2
-
-      - name: Call reusable workflow to handle CERT_TYPE "tls"
+  # Generate SSL cert
+  Generate_Cert:
         uses: ankushjha-aj/BINGE-telegram/.github/workflows/switch_case.yml@fix-yml
         with:
           CERT_TYPE: "tls"
-
-# name: Use Deploy Certs Workflow
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# jobs:
-#   call-deploy-certs:
-#     uses: ankushjha-aj/BINGE-telegram/.github/workflows/switch_case.yml@fix-yml
-#     with:
-#       CERT_TYPE: "tls"
