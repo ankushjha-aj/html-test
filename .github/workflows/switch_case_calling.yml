@@ -1,0 +1,12 @@
+name: Use Deploy Certs Workflow
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  call-deploy-certs:
+    uses: ankushjha-aj/BINGE-telegram/.github/workflows/switch_case.yml@fix-yml
+    with:
+      CERT_TYPE: "tls"
