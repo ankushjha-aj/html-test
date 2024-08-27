@@ -1,0 +1,14 @@
+name: Custom Message
+on:
+  push:
+    branches:
+      - gchat-msg
+
+jobs:
+  gChat_Notification:
+    uses: ankushjha-aj/Send-notification-to-gChat-if-SSL-renewal-and-deployment-fail/.github/workflows/gchat_notification.yaml@standard-Workflow
+    secrets:
+      GCHAT_URL: ${{ secrets.GCHAT_URL }}
+    with:
+      MESSAGE: "This Is To Verify That we can Send Messsage Accordingly if we dont have Any SSL renewal Notification To send"
+  
