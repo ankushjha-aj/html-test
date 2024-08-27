@@ -10,5 +10,5 @@ jobs:
     secrets:
       GCHAT_URL: ${{ secrets.GCHAT_URL }}
     with:
-      MESSAGE: "This Is To Verify That we can Send Messsage Accordingly if we dont have Any SSL renewal Notification To send"
+      MESSAGE: "Calling this workflow from another Verify That we can Send messages accordingly if we don't have any SSL renewal Notification To send"
   
