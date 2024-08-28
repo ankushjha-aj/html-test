@@ -7,7 +7,7 @@ on:
 jobs:
   gChat_Notification:
     uses: ankushjha-aj/Send-notification-to-gChat-if-SSL-renewal-and-deployment-fail/.github/workflows/gchat_notification.yaml@incline_approach
-    secrets:
+    secrets: 
       GCHAT_URL: ${{ secrets.GCHAT_URL }}
     with:
       MESSAGE: "Testing this to ensure that we can use our reusable workflow even when we need to send a direct message, not just for SSL renewal success or failure."
